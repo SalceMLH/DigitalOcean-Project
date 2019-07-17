@@ -619,18 +619,18 @@ function activateCarousel() {
 
 ----
 
-# 3. Deploying to Digital Ocean #
+# 3. Deploying to DigitalOcean #
 
-Now it is time to deploy to Heroku, but before that we need to do a few changes in our application.
+Now it is time to deploy to DigitalOcean, but before that we need to do a few changes in our application.
 
 
 ## 3.1. Introduction ##
 
-Now that you have your application running, it is time to deploy it to a remote server to allow your friends to access it and see the beaches and clean-ups locations. One of the easiest ways to achieve it is using a Linux server, and this is where [Digital Ocean](digitalocean.com) comes to help.
+Now that you have your application running, it is time to deploy it to a remote server to allow your friends to access it and see the beaches and clean-ups locations. One of the easiest ways to achieve it is using a Linux server, and this is where [DigitalOcean](digitalocean.com) comes to help.
 
 ## 3.2. Creating your account ##
 
-Go to [Digital Ocean](digitalocean.com) and create your account. If after creating the account, they ask you a feel questions about your first project, feel free to go ahead an answer them. 
+Go to [Digital Ocean](https://www.digitalocean.com/) and create your account. If after creating the account, they ask you a feel questions about your first project, feel free to go ahead an answer them. 
 
 ## 3.3. Creating your first server ##
 
