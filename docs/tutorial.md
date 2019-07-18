@@ -619,22 +619,22 @@ function activateCarousel() {
 
 ----
 
-# 3. Deploying to DigitalOcean #
+# 3. Deploying to Digital Ocean #
 
-Now it is time to deploy to DigitalOcean, but before that we need to do a few changes in our application.
+Now it is time to deploy to Digital Ocean, but before that we need to do a few changes in our application.
 
 
 ## 3.1. Introduction ##
 
-Now that you have your application running, it is time to deploy it to a remote server to allow your friends to access it and see the beaches and clean-ups locations. One of the easiest ways to achieve it is using a Linux server, and this is where [DigitalOcean](digitalocean.com) comes to help.
+Now that you have your application running, it is time to deploy it to a remote server to allow your friends to access it and see the beaches and clean-ups locations. One of the easiest ways to achieve it is using a Linux server, and this is where [Digital Ocean](https://digitalocean.com) comes to help.
 
 ## 3.2. Creating your account ##
 
-Go to [Digital Ocean](https://www.digitalocean.com/) and create your account. If after creating the account, they ask you a feel questions about your first project, feel free to go ahead an answer them. 
+Go to [Digital Ocean](https://digitalocean.com) and create your account. If after creating the account, they ask you a feel questions about your first project, feel free to go ahead an answer them. 
 
 ## 3.3. Creating your first server ##
 
-Once logged in you should click in the dropdown menu Create and once it shows the options, click in Droplets. It will redirect you to another page in which you can choose an image. Click in Market Place and look for the NodeJS one. When selecting the machine configuration, feel free to pick the smallest one, which at the moment of this writing is the 1GB / 1 CPU one. You don't need any other configuration, feel free to go straight to Create Droplet. Feel free to ignore all the other configurations since they are optional, go straight to Create Droplet and after you are redirected to another page just wait a couple of minutes until it is created before moving forward.
+Once logged in you should click in the dropdown menu Create and once it shows the options, click in Droplets. It will redirect you to another page in which you can choose an image. Click in Distributions and look for the Ubuntu 18.04 x64 one (it should be the first one). When selecting the machine configuration, feel free to pick the smallest one, which at the moment of this writing is the 1GB / 1 CPU one. You don't need any other configuration, feel free to go straight to Create Droplet. Ignore all the other configurations since they are optional. Go straight to the Create Droplet button.
 
 ## 3.4. Creating your deploy user ##
 
@@ -643,7 +643,7 @@ After you create the Droplet, Digital Ocean will send you an email with your cre
 Now go to your terminal, and run:
 
 ```cmd
-ssh root@<THE_IP_IN_YOUR_EMAIL>
+ssh root@<IP>
 ```
 
 The command below will be something like
@@ -676,7 +676,7 @@ exit
 Now log in with your new user.
 
 ```cmd
-ssh deploy@<THE_IP_IN_YOUR_EMAIL>
+ssh deploy@<IP>
 ```
 
 ## 3.5. Updating and Upgrading your server ##
@@ -697,17 +697,32 @@ sudo apt-get upgrade
 
 If it asks you for permission, just type `y`
 
-## 3.6. Opening the port for your application ##
+## 3.6. Installing NodeJS ##
+
+To install NodeJS you need to, in the server, run the following command:
+
+```
+sudo apt install nodejs
+```
+If it asks for permission type `y`
+
+Now let's install the Node Packaging System
+
+sudo apt install npm
+
+If it asks for permission type `y`
+
+## 3.7. Opening the port for your application ##
 
 Your server is ready to receive an application, but to access it, we need to open the port 3000, which is the one we're using for the application.
 
 On your server run
 
-```cmd 
+```cmd
 sudo ufw allow 3000
 ```
 
-## 3.7. Uploading your project ##
+## 3.8. Uploading your project ##
 
 Now that you have your server ready let's upload your project.
 
@@ -716,12 +731,12 @@ Before you go to the next step I recommend you to remove your local `node_module
 Go to the folder that your project is located and run the following command:
 
 ```cmd
-scp -r mlh-localhost-digital-ocean/ deploy@<THE_IP_IN_YOUR_EMAIL>:/home/deploy
+scp -r mlh-localhost-digital-ocean/ deploy@<IP>:/home/deploy
 ```
 
 Type your password,  and wait a couple of minutes, and once it finishes, you should have your project folder on the server.
 
-## 3.8. Installing the project dependencies ##
+## 3.9. Installing the project dependencies ##
 
 On your server go to your project folder and install the node dependencies
 
@@ -730,9 +745,7 @@ cd mlh-localhost-digital-ocean
 npm install
 ```
 
-That's all folks!
-
-## 3.9. Running the application ##
+## 3.10. Running the application ##
 
 We're all set! Let's run the application now
 
@@ -740,4 +753,6 @@ We're all set! Let's run the application now
 npm start
 ```
 
-Now go to your browser and type `<THE_IP_IN_YOUR_EMAIL>:3000`
+Now go to your browser and type `<IP>:3000`
+
+That's all folks!
